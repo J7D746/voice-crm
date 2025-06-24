@@ -769,12 +769,32 @@
 
         // Apply suggestion to form
         function applySuggestion(field, value) {
-            const element = document.getElementById(field);
+             // Map suggestion fields to actual form field IDs
+            const fieldMapping = {
+                'customerName': 'customerName',
+                'contactPerson': 'contactPerson', 
+                'customerEmail': 'customerEmail',
+                'customerPhone': 'customerPhone',
+                'dealValue': 'dealValue',
+                'callType': 'callType',
+                'topic': 'topic',
+                'outcome': 'outcome',
+                'notes': 'notes'
+            };
+    
+            const actualFieldId = fieldMapping[field] || field;
+            const element = document.getElementById(actualFieldId);
+    
             if (element) {
                 element.value = value;
+                element.style.backgroundColor = '#34C759';
+                element.style.color = 'white';
+                setTimeout(() => {
+                    element.style.backgroundColor = '';
+                    element.style.color = '';
+                }, 1000);
                 switchScreen('formScreen');
             }
-        }
 
         // Voice control functions
         function startListening() {
