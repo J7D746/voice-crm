@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -769,32 +769,12 @@
 
         // Apply suggestion to form
         function applySuggestion(field, value) {
-             // Map suggestion fields to actual form field IDs
-            const fieldMapping = {
-                'customerName': 'customerName',
-                'contactPerson': 'contactPerson', 
-                'customerEmail': 'customerEmail',
-                'customerPhone': 'customerPhone',
-                'dealValue': 'dealValue',
-                'callType': 'callType',
-                'topic': 'topic',
-                'outcome': 'outcome',
-                'notes': 'notes'
-            };
-    
-            const actualFieldId = fieldMapping[field] || field;
-            const element = document.getElementById(actualFieldId);
-            alert('Looking for: ' + actualFieldId + ', Found: ' + (element ? 'YES' : 'NO') + ', Value: ' + value);
+            const element = document.getElementById(field);
             if (element) {
                 element.value = value;
-                element.style.backgroundColor = '#34C759';
-                element.style.color = 'white';
-                setTimeout(() => {
-                    element.style.backgroundColor = '';
-                    element.style.color = '';
-                }, 1000);
                 switchScreen('formScreen');
             }
+        }
 
         // Voice control functions
         function startListening() {
