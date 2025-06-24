@@ -784,7 +784,7 @@
     
             const actualFieldId = fieldMapping[field] || field;
             const element = document.getElementById(actualFieldId);
-    
+            alert('Looking for: ' + actualFieldId + ', Found: ' + (element ? 'YES' : 'NO') + ', Value: ' + value);
             if (element) {
                 element.value = value;
                 element.style.backgroundColor = '#34C759';
